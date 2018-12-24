@@ -1,0 +1,44 @@
+.mainbg {
+    background: url('mainbg.png')  no-repeat center center fixed;   
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  
+}
+
+.indexlogo {
+    width:400px;
+    height:150px;
+    display:flex;
+    justify-content: center;
+    margin-top:10%;
+    margin-bottom:40px;
+}
+
+.indexcontent{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.mainbutton {
+    border: none;
+    width: 150px;
+    height: 48px;
+    background-color: #E2D6CF;
+    font-family: 'KoPubDotumMedium';
+}
+
+.mainbox {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 70%;
+    height: 50%;
+    margin-left: 15%;
+}
+
+.indexex {
+    color : #454338;
+    font-family: 'Iropke Batang', serif; 
+    margin:10px; 
+    left: 3;
+    font-size: 5px;
+}

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<p>
+  <strong>Restaurant name :</strong>
+  <%= @restaurant.restaurant_name %>
+</p>
+
+<!--#############################################################################################-->
+<p>메뉴</p>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Menu.where(:restaurant_name =>@restaurant.restaurant_name).each do |menu| %>
+      <tr>
+        <td><%= menu.id%></td>
+        <td><%= menu.menu_name%></td>
+        <td><%= link_to '메뉴 보기', menu %></td>
+        <td><%= link_to '메뉴 수정', edit_menu_path(menu) %></td>
+        <td><%= link_to '메뉴 삭제', menu, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '메뉴 추가', new_menu_path %>
+<!--#############################################################################################-->
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>

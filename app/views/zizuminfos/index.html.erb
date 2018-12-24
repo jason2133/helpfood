@@ -1,0 +1,84 @@
+<!-- 글꼴 스타일 -->
+<style type="text/css">
+  body { font-family: 'Jeju Myeongjo', serif; }
+  h1 { font-weight: bold; }
+</style>
+
+<link rel="stylesheet" href="zizuminfos.scss">
+
+
+<p id="notice"><%= notice %></p>
+
+<body>
+  <h1>Search by Restaurant . . .</h1>
+
+  <p id="notice"><%= notice %></p>
+  
+  <!-- Search Result -->
+  <p><strong><%=params[:restaurant_name]%></strong> 로 검색 결과
+   : <strong><%=@zizums.length%> 개</strong>의 지점을 찾았습니다.</p> <br>
+
+
+
+  <!-- Informations -->
+  <div class="row" align="left">
+    <% @zizums.each do |zizum| %>
+    <div class="col-4">
+      <div class="card" style="width: 20rem; height: 15rem;">
+        <div class="card-body">
+          <!-- Like 여부 -->
+          <div align="right">
+          <% if zizum.followed_by?(current_user) %>
+            <!-- 좋아요를 했다면 -->
+                <%= link_to(fa_icon('heart', class: "like icon fa-lg"), 
+                zizum_front_follow_path(id: zizum.id, utf8: params[:utf8], sido: params[:sido] , sigungu: params[:sigungu], a9_nanryu: params[:a9_nanryu], a6_peach: params[:a6_peach], a7_tomato: params[:a7_tomato], a1_maemil: params[:a1_maemil], a2_mil: params[:a2_mil], a3_daedu: params[:a3_daedu], a11_ddakgogi: params[:a11_ddakgogi], a12_shoigogi: params[:a12_shoigogi], a8_piggogi: params[:a8_piggogi], a13_saewoo: params[:a13_saewoo], a14_godeungeoh: params[:a14_godeungeoh], a15_honghap: params[:a15_honghap], a16_junbok: params[:a16_junbok], a17_gul: params[:a17_gul], a18_jogaeryu: params[:a18_jogaeryu], a19_gye: params[:a19_gye], a20_ohjingeoh: params[:a20_ohjingeoh], a4_hodu: params[:a4_hodu], a5_ddangkong: params[:a5_ddangkong], a21_ahwangsan: params[:a21_ahwangsan], commit: params[:commit]),
+                 method: :post)%> 
+            <!-- 좋아요를 안 했다면 -->
+            <% else %>
+                <%= link_to(fa_icon('heart', class: "unlike icon fa-lg"), 
+                zizum_front_follow_path(id: zizum.id, utf8: params[:utf8], sido: params[:sido] , sigungu: params[:sigungu], a9_nanryu: params[:a9_nanryu], a6_peach: params[:a6_peach], a7_tomato: params[:a7_tomato], a1_maemil: params[:a1_maemil], a2_mil: params[:a2_mil], a3_daedu: params[:a3_daedu], a11_ddakgogi: params[:a11_ddakgogi], a12_shoigogi: params[:a12_shoigogi], a8_piggogi: params[:a8_piggogi], a13_saewoo: params[:a13_saewoo], a14_godeungeoh: params[:a14_godeungeoh], a15_honghap: params[:a15_honghap], a16_junbok: params[:a16_junbok], a17_gul: params[:a17_gul], a18_jogaeryu: params[:a18_jogaeryu], a19_gye: params[:a19_gye], a20_ohjingeoh: params[:a20_ohjingeoh], a4_hodu: params[:a4_hodu], a5_ddangkong: params[:a5_ddangkong], a21_ahwangsan: params[:a21_ahwangsan], commit: params[:commit]), 
+                method: :post)%>
+            <% end %>  <!-- Like : close -->
+          </div>
+
+          <%# ajax로 전송할 레스토랑 이름%>
+          <h4 class="seeMenu"><%= zizum.restaurant_name%></h4>
+          <h4><%=zizum.zizum_name%></h4>  <!-- 식당 이름 -->
+          <%# display:none 하고 옆으로 메뉴 띄울 것임%>
+          <p class="card-text"><%=zizum.sigungu%>, <%=zizum.sangse_juso%></p>  <!-- 식당 주소 -->
+
+          <div class="card-text" style="position:absolute; bottom:1.5rem; right:0.9rem;" text-align="right"><%=link_to '>> 상세 정보',zizuminfo_path(id: zizum.id)%> </div> <!-- 상세 페이지 이동 정보 --> 
+
+        </div>  <!-- card body : close -->
+      </div>  <!-- card div : close -->
+    </div>  <!-- column : close -->
+    <% end %>
+  </div>  <!-- row : close --> <br>
+
+
+  <!-- upload new zizum information -->
+  <p align="right"> *  사장님이신가요? 
+  <%= link_to '식당 등록하기', new_zizuminfo_path %>
+  를 통해 식당 정보를 업로드해 주세요.</p>
+
+</body>
+
+
+<script>
+    $(".icon").click(function(){
+        // var res = $(this).;
+        // alert(res);
+        //var ziz = $(this).siblings(".zizumName").html();
+        if ($(this).hasClass("like")) //follow하고 있다면
+            {
+                $(this).removeClass("like");
+                $(this).addClass("unlike");
+            }
+        else if ($(this).hasClass("unlike"))
+            {
+                $(this).removeClass("unlike");
+                $(this).addClass("like");
+            }    
+            });
+          
+</script>

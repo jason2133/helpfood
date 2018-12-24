@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1 style = "margin-top: 40px; text-align: center"> <%=current_owner.name%>님의 식당관리</h1>
+  <h1 style = "margin-top: 40px; text-align: center"> </h1>
+  <div class="form-group" style="margin-top: 50px; text-align: center">
+    <% if owner_signed_in? %>
+      <p> 음식점 이름: <%= current_owner.shop_name %> </p>    
+      <p> 음식점 번호: <%= current_owner.shop_num %> </p>
+      <p> 음식점 주소: <%= current_owner.shop_info %> </p>
+
+      <p><%= link_to('정보수정', edit_owner_registration_path) %></p>
+    <%end%>
+</div>
+
+<!-- 사장님 가입할경우 관리자가 가게 정보와 사업자 확인 후 사업자의 게시글로restaurant생성한다. -> 메뉴관리 가능? 관리자승인? -->

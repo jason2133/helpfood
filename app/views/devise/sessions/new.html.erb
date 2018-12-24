@@ -1,0 +1,75 @@
+<body>
+  
+  <div class="logincontent irop">
+    <div class="logindiv1">
+      <%= image_tag 'login.jpg', class:"loginimage" %>  
+    </div>
+    
+    <div class="logindiv2">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="logindiv11">
+          <div>
+            <%= f.label "이메일", class:"loginform" %><br>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",  required: false ,class:"logininputform" %>
+          </div>
+          <br>
+          <div style="margin-bottom:2em">
+            <%= f.label "비밀번호", class:"loginform" %><br>
+            <%= f.password_field :password, required: false, input_html: { autocomplete: "current-password"},class:"logininputform" %>
+          </div>
+          <br>
+          <div>
+            <%= f.button :submit, "Log In", class: "loginbutton"  %>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="logindiv12" >
+          <div class="loginbottombutton">
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "가입하기", new_registration_path(resource_name), :style=>"text-decoration: none; color: #454338; font-weight:bold; "  %><br />
+            <% end %>
+          </div>
+          <span class="snslogin" >
+            <%- if devise_mapping.omniauthable? %>
+              <%- resource_class.omniauth_providers.each do |provider| %>
+                <%- if OmniAuth::Utils.camelize(provider) == "Kakao"  %> 
+                  <div>
+                    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+                      <i class="fab fa-kickstarter kakao"></i>
+                    <% end %>
+                  </div>
+                <%- elsif OmniAuth::Utils.camelize(provider) == "GoogleOauth2"  %>  
+                  <div>
+                    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+                      <i class="fab fa-google-plus-square google"></i>
+                    <% end %>
+                  </div>
+                <%- elsif OmniAuth::Utils.camelize(provider) == "Facebook"  %>  
+                  <div>
+                    <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+                      <i class="fab fa-facebook-square facebook"></i>
+                    <% end %>
+                  </div> 
+                <% end %>
+              <% end %>  
+            <% end %> 
+          </span>
+        </div>
+      
+        <div class="loginjustline">
+        </div>
+
+        <div class="logindiv13">
+          <div>
+            <%= link_to '사업자로 접속하기',  new_owner_session_path, class:"loginbusiness", :style=>"text-decoration: none; color: #454338;" %> 
+          </div>
+          <div>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "비밀번호 찾기", new_password_path(resource_name), :style=>"text-decoration: none; color: #454338;", class:"loginforget" %><br />
+            <% end -%>
+          </div>
+        </div> 
+      <% end %>
+    </div>
+  </div>
+</body>

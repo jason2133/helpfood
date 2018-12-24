@@ -1,0 +1,255 @@
+@import 'bootstrap';
+@import 'profiles.scss';
+@import 'header.scss';
+@import 'main.scss';
+@import 'login.scss';
+@import 'join.scss';
+@import 'edit.scss';
+@import 'zizuminfos.scss';
+@import 'menus.scss';
+
+
+//-- font 정리
+//나눔고딕 
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+//Kopub돋움
+@font-face { font-family: 'KoPubDotumMedium'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff'); font-weight: normal; font-style: normal; }
+//제주명조
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css); .jejumyeongjo * { font-family: 'Jeju Myeongjo', serif; }
+//이롭게바탕
+@import url('//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css');
+
+body {
+    font-family: 'Jeju Myeongjo', serif;
+}
+//-----search
+#menuBox{
+    margin: 10px;
+    width: 400px;
+    height: 700px;
+    overflow-y: scroll;
+    border-style: solid;
+    border-color: black;
+}
+
+
+.allergy{
+    width: 180px;
+}
+
+
+
+.experiment{
+    background-color: #e2dccf;
+    font-weight: 600;
+}
+
+.sigungu-enter{
+    visibility: hidden;
+ }
+
+.like{
+    color: red;
+}
+
+
+.jeju {
+    font-family: 'Jeju Myeongjo', serif;
+    color:#454338;
+}
+
+.irop {
+    font-family: 'Iropke Batang', serif; 
+    color:#454338;
+}
+
+//-----
+.unlike{
+    color: #E2D6CF;
+    // border-style: solid;
+    // border-color :#454338; 
+}
+
+.getinfo{
+    display: none;
+}
+
+.shops{
+    // border-style: solid;
+    // border-color: black;
+    // height: 700px;
+    overflow-y: scroll;
+}
+
+.hideMenu{
+    display: none; 
+}
+
+.card{
+    margin: 15px;
+}
+a.fa-globe {
+  position: relative;
+  top: 3px;
+  font-size: 1em;
+  color: rgba(24, 2, 2, 0);
+  cursor: pointer;
+}
+span.fa-comment {
+  position: absolute;
+  font-size: 1em;
+  top: -9px;
+  color: rgb(41, 153, 116);
+  right: -12px;
+}
+span.num {
+  position: absolute;
+  font-size: 0.6em;
+  top: -7px;
+  color: #fff;
+  right: -7px;
+}
+
+
+
+
+/* SEARCH */
+  
+  
+#cont {
+    position: absolute;
+    height: 50px;
+    width: 300px;
+    margin-left: 170px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #cont.on {
+    -webkit-animation-name: in-out;
+    animation-name: in-out;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  
+  .rsinput {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #FFFFFF;
+    border-radius: 50%;
+    background: none;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Roboto;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+  
+  .zsearch {
+    background: none;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 100%;
+    outline: 0;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+  
+  .zsearch:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: 26px;
+    margin-left: 17px;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .zclose {
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+  }
+  
+  .zclose:before {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    margin-top: -1px;
+    margin-left: -13px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .zclose:after {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    background-color: #fff;
+    margin-top: -1px;
+    margin-left: -13px;
+    cursor: pointer;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .zsquare {
+    box-sizing: border-box;
+    padding: 0 40px 0 10px;
+    width: 300px;
+    height: 50px;
+    border: 4px solid #FFFFFF;
+    border-radius: 0;
+    background: none;
+    color: #fff;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+    -webkit-transition-delay: 0.4s, 0s, 0.4s;
+    transition-delay: 0.4s, 0s, 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+.a-checkbox{
+    background-color: white;
+}

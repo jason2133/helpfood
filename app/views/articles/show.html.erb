@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<% if @article.followed_by?(current_user) %>
+<!-- 좋아요를 했다면 -->
+    <%# link_to (fa_icon('thumbs-up', style: 'color: blue'), like_article_path, method: :post) %>
+    <%= link_to(fa_icon('thumbs-up', class: "like icon"), article_follow_path, method: :post) %> (<%=@article.followers_count%>)
+<!-- 좋아요를 안 했다면 -->
+<% else %>
+    <%= link_to(fa_icon('thumbs-up', class: "unlike icon"), article_follow_path, method: :post) %> (<%=@article.followers_count%>)
+    <%# link_to (fa_icon('thumbs-up', style: 'text-decoration: none'), like_article_path, method: :post) %>
+<% end %>
+
+<p>
+해당 게시물에 라이크를 누른 유저 리스트: 
+<% @article.followers.each do |follower|%>
+  <%= link_to follower.name, profile_path(follower.profile.id) %>
+<%end %>
+</p>
+
+<hr />
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @article.content %>
+</p>
+
+<p>
+  <strong>Articleimage:</strong>
+  <% if  @article.articleimage.url != nil%>
+  <%= image_tag @article.articleimage.url %> <%end%>
+</p>
+
+<%= link_to '뒤로', articles_path %>
+<% if current_user == @article.user %>
+  | <%= link_to '수정', edit_article_path(@article) %>
+  | <%= link_to '삭제', article_path(@article), method: :DELETE, data: {confirm: '게시물을 삭제하시겠습니까?'}%>
+<% end %>
+
+<script>
+
+    $(".icon").click(function(){
+        if ($(this).hasClass("like")) //follow하고 있다면
+            {
+                $(this).removeClass("like");
+                $(this).addClass("unlike");
+            }
+        else if ($(this).hasClass("unlike"))
+            {
+                $(this).removeClass("unlike");
+                $(this).addClass("like");
+            }
+    });
+</script> 

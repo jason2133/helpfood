@@ -1,0 +1,95 @@
+
+<br> <br>
+<body>
+    <div class="mainbox">
+        <div class="indexcontent">
+            <%= image_tag 'logo.png', class:"indexlogo" %>
+        </div>
+    
+        <div class="indexcontent" style="jeju">
+            <button class="mainbutton"><%= link_to '식당으로 검색',  zizuminfos_search_path, :style=> "color: #454338; text-decoration: none;" %></button>
+            <button class="mainbutton"><%= link_to '알레르기 검색', menus_search_path, :style=> "color: #454338; text-decoration: none;" %></button>
+        </div>
+        <br><br>
+    </div>
+
+    <!--크롤링 링크-->
+    <%= link_to "크롤링 업데이트", "/crawling"%>
+
+</body>
+
+<!--공지 팝업창 수정 필요 -->
+<div id="noticeModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h5>새로운 식당이 업데이트 되었습니다.</h5>
+    <b><%=@date.to_s%></b>
+     <% for n in 0..@todays %>
+     <h7> <%=@today_contents[n]%></h7>
+     <% end %> <br>
+    <p><input type="checkbox" value="OK" onclick="javascript:closeWinAt00('myModal', 1);"/>오늘만 이 창을 열지 않음 </p>
+  </div>
+</div>
+
+
+<style> 
+/* 임시 ***************/
+#no{
+  width:200px;
+  margin-left:38%;
+}
+/***********************/
+#noticeModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    overflow: auto; /* Enable scroll if needed */
+    width:40%;
+    margin-left: 100px;
+    
+}
+
+#noticeModal.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width:30%;
+    margin-right:80px;
+    margin-left:70px;
+}
+
+/* The Close Button */
+.close {
+    text-align: right;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
+<% if @todays != 0  %>
+ <script>  
+ openWin('noticeModal');  
+  var modal = document.getElementById('noticeModal');
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+          modal.style.display = "none";   
+  }
+ </script>  
+<% end  %>
+
+  <!--혜진 임시 크롤링 버튼-->
+  <%# <%= link_to "크롤링 업데이트", "/crawling"%> 
+
+
+

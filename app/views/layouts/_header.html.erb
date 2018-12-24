@@ -1,0 +1,86 @@
+<div id="navbar" class="navbarstyle">
+    <div><%= link_to "/" do %>
+            <%= image_tag 'logo.png', class:"logo" %>
+         <% end %></div>
+    <div class="navbarcontent"> 
+        <div><%= link_to "About", home_about_path, class:"headerfont", :style=>"text-decoration: none;  color: #454338;" %>        </div>
+            <% if current_user.nil? %>
+                <div><%= link_to "Restaurant", zizuminfos_search_path, class:"headerfont", :style=>"text-decoration: none; color: #454338;", data: {confirm: '서비스를 이용하시기 전에 회원가입을 먼저 해주세요 ^^'} %></div>
+                <div><%= link_to "Filtering", menus_search_path, class: "headerfont", :style=>"text-decoration: none; color: #454338;", data: {confirm: '서비스를 이용하시기 전에 회원가입을 먼저 해주세요 ^^'} %></div>
+            <% elsif !current_user.nil? %>
+                <div><%= link_to "Restaurant", zizuminfos_search_path, class:"headerfont", :style=>"text-decoration: none; color: #454338;" %></div>
+                <div><%= link_to "Filtering", menus_search_path, class: "headerfont", :style=>"text-decoration: none; color: #454338;" %></div>
+            <% end %>
+        
+        <!-- 마이페이지 -->
+            <% if user_signed_in? %> 
+                <% if current_user.profile.nil? %> 
+                 <div>   <%= link_to "My Page", new_profile_path(@profile), class:"headerfont", :style=>"text-decoration: none; color: #454338;" %>
+                <% elsif !current_user.profile.nil? %>
+               <div>     <%= link_to "My Page", profile_path(current_user.profile.id), class:"headerfont", :style=>"text-decoration: none; color: #454338;"  %>
+                <% end %>
+            <% elsif owner_signed_in?%>
+            <div>    <%= link_to "나의 식당관리", home_myrt_path,  class:"jeju", :style=>"text-decoration: none; color: #454338;" %>    
+            <% end %>
+    
+
+        <!-- 알림창 -->
+            <% if user_signed_in? %>
+                <button onclick="showHide('info_html')" onfocus="this.blur()" style="background:none;border:none;">
+                    <%if current_user.new_alarms.unread_by(current_user).count ==0 %>
+                     <a class="fa fa-globe" style="color:black;"></a> 
+                    <% else %> 
+                    <a class="fa fa-globe" style="color:black;">
+                        <span class="fa fa-comment"></span>
+                        <span class="num"> <%= current_user.new_alarms.unread_by(current_user).count %> </span>
+                    </a>  
+                    <%end%>
+                 </button>
+                <div id="info_html" class="modal"><div class="inborder">
+                    <div class="noti_title"><b>알림창</b></div><hr>
+                    <%= render partial: "new_alarms/new_alarm", collection: current_user.new_alarms.unread_by(current_user) %><br>
+                    <%= link_to '<b>모두 읽기</b>'.html_safe, new_alarms_read_all_path, {:style=>'color:black;margin-left:80%;'}%>
+                </div></div>
+            </div>  
+            <% end %>   
+   
+        <!-- 로그인/로그아웃 -->
+        <div>
+            <% if !user_signed_in? && !owner_signed_in? %> 
+                <%= link_to "Log In", new_user_session_path, class:"headerfont", :style=>"text-decoration: none; color: #454338;" %>
+            <% elsif user_signed_in?%>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"headerfont", :style=>"text-decoration: none; color: #454338;" %>
+             <% elsif owner_signed_in?%>
+                <%= link_to "로그아웃", destroy_owner_session_path, method: :delete, class:"headerfont", :style=>"text-decoration: none; color: #454338;" %>     
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+<style>
+ #info_html{
+     display:none; margin-top: 35px; background-color:white;
+     width:25%;  height:40%; margin-left: 65%; border-radius:7px;
+     font: black;
+     padding-top:25px;
+     padding-left:20px;
+     padding-right:20px;
+   
+ }
+ .inborder{
+    padding: 10px;
+     border: 1px solid rgb(41, 153, 116);
+ }
+
+</style>
+<script>
+$(document).scroll(function() {
+    if($(this).scrollTop() == 0)
+        $('#navbar').css('background-color','rgba(255, 255, 255, 0.5)');
+    else
+        $('#navbar').css('background-color','rgba(255, 255, 255, 1)');
+});
+</script>
+
+

@@ -1,0 +1,131 @@
+.logincontent{
+    display:flex;
+    margin-bottom:3%;
+}
+
+.logindiv1 {
+    width:40%;
+}
+
+.logindiv2 {
+    width: 60%;
+    margin-top: 70px;
+    margin-left: 100px;
+    padding:10px;
+}
+
+.loginimage{
+    width:100%;
+}
+
+.logindiv11 {
+    width:500px;
+}
+
+.loginbottombutton {
+    width:240px;
+    height:40px;
+    background-color:white;
+    text-align:center;
+    padding:5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    margin-left:260px;
+}
+
+.loginform{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #454338;
+    
+}
+
+.logininputform {
+    border:none;
+    background-color: white;
+    border-radius: 5px;
+    height:50px;
+    width:500px;
+    padding: 1em;
+    text-decoration: none;
+    right:0;
+}
+
+.loginbutton {
+    position: absolute;
+    background-color: #E2D6CF;
+    height:50px;
+    width:500px;
+    font-weight: bold;
+    font-size: 20px;;
+    color:#454338;
+    padding: 5px;
+}
+
+.loginbutton {
+    position: absolute;
+    background-color: #E2D6CF;
+    height:50px;
+    width:500px;
+    font-weight: bold;
+    font-size: 20px;;
+    color:#454338;
+    padding: 5px;
+}
+
+.logindiv12 {
+    display:flex;
+    width:500px;
+    justify-content: space-between;
+}
+
+.snslogin {
+    display:flex;
+    justify-content: space-around;
+    position: absolute;
+    width:240px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+
+.google {
+    font-size:2em;
+    color: #DE4E43;
+    margin: 5px;
+}
+
+.facebook {
+    font-size: 2em;
+    color: #3B5999;
+    margin: 5px;
+}
+
+.kakao {
+    font-size: 2em;
+    color: #FEEA00;
+    margin: 4px;
+}
+
+.logindiv13 {
+    display:flex;
+    justify-content: space-between;
+    width:500px;
+}
+
+.loginforget {
+  
+}
+
+.loginbusiness {
+    
+}
+
+.loginjustline {
+    border: 1px solid;
+    border-color : #E2D6CF;
+    width:500px;
+    margin-bottom:10px;
+    border-radius: 5px;
+}

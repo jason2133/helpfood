@@ -1,0 +1,62 @@
+<!-- 글꼴 스타일 -->
+<style type="text/css">
+  body { font-family: 'Jeju Myeongjo', serif; }
+  h1, h4 { font-weight: bold; }
+</style>
+
+<p></p>
+
+<body>
+<div class="rest">
+    <h1>Search by Restaurant . . .</h1>
+    <br> <br> <br>
+    
+
+    <!-- 기존 코드 -->
+    <div align="center" vertical-align="middle">
+        <%= form_tag(zizuminfos_path, method: :get) do %>
+            <%= text_field_tag :restaurant_name, params[:restaurant_name] %> 
+            <br> <br>
+            <%= submit_tag 'Search'%>
+        <% end %>
+    </div>
+
+
+    <!-- TEST -->
+    <form id="cont">
+        <input type="text" name="rsinput"  class="rsinput">
+        <button type="reset" class="zsearch"></button>
+    </form>
+
+
+</div>  <!-- REST : close -->
+
+
+
+
+<!-- TESTING -->
+
+<%# 
+<form id="content">
+  <input type="text" name="input" class="input">
+  <button type="reset" class="zsearch"></button>
+</form>  %>
+
+
+
+</body>
+
+
+<script type="text/javascript">
+// -
+function expand() {
+  $(".zsearch").toggleClass("zclose");
+  $(".rsinput").toggleClass("zsquare");
+  if ($('.zsearch').hasClass('zclose')) {
+    $('.rsinput').focus();
+  } else {
+    $('.rsinput').blur();
+  }
+}
+$('button').on('click', expand);
+</script>

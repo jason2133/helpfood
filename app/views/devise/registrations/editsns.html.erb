@@ -1,0 +1,199 @@
+  <div class="edit_title"> 세부정보를 입력해주세요 </div>
+  <%= form_for current_user,{ url: user_registration_path} do |f| %>
+<div class="editcontent">
+  <div class="info"><br/><br/>
+    <div class = "field col-md-8">
+    <span class="highlight">&nbsp;&nbsp;<%= f.label "이름" %>&nbsp;&nbsp;&nbsp;</span><br/>
+    <%= f.text_field :name, class: "effect-1", :required => true %>
+    </div><br/>
+
+    <div class="field col-md-8">
+     <span class="highlight">&nbsp;&nbsp;<%= f.label "이메일" %>&nbsp;</span><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "effect-1" %>
+    </div><br/>
+    
+    <div class="field col-md-8">
+    <span class="highlight">&nbsp;&nbsp;<%= f.label  "프로필 사진" %>&nbsp;</span><br />
+    <%= f.file_field :profileimage, accept: 'image/png, image/gif, image/jpeg' %>
+    </div>
+    <br/> <br/> <br/> <br/>
+       <div class="actions">
+    <%= f.submit "Sign Up", class: "actions"%>
+    </div>
+  </div> 
+  
+  <hr class="edithr">
+  <%# ---------info %>
+
+  <div class="option"><br/><br/>
+    <div class="field">
+   <span class="highlight" style="text-align:center;"><%= f.label  "성별" %> </span><br/>
+      <%= f.radio_button :gender, "male" %> 남자<br/>
+      <%= f.radio_button :gender, "female" %> 여자 <br/>
+    </div><br/>
+
+    <div class="field">
+     <span class="highlight"  style="text-align:center;"><%= f.label  "나이" %>  </span><br/>
+    <%= f.select :ages, options_for_select([["10대이하", "10대이하"], ["20-30대","20-30대"], ["40-50대","40-50대"],["60대이상","60대이상"]]), { prompt: '나이를 선택해주세요' } %>  
+    </div><br/><br/>
+  
+    <div class="field_allergy">
+     <span class="highlight2" style="text-align:center;"><%= f.label  "알레르기 정보" %> </span><br/>
+      <div class="underline"> 유제품 및 난류:</div>
+      <div>
+      <input type="checkbox" name='user[allergy][]' id='egg' value= '난류' ><label for= 'egg'>난류</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='milk' value= '우유' ><label for= 'milk'>우유</label>
+      <%# <%= check_box_tag 'user[allergy][]', '우유' %> 
+      </div><br/>
+      <div class="underline"> 과채류 및 곡류:</div>
+      <div>
+      <input type="checkbox" name='user[allergy][]' id='peach/tomato'value= '복숭아/토마토' ><label for= 'peach/tomato'>복숭아/토마토</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='bean' value= '대두(콩)' ><label for= 'bean'>대두(콩)</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='wheat' value= '밀/메밀' ><label for= 'wheat'>밀/메밀</label>
+      </div><br/>
+      <div class="underline"> 육류:</div>
+      <div>
+      <input type="checkbox" name='user[allergy][]' id='chicken'value= '닭고기' ><label for= 'chicken'>닭고기</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='pork'value= '돼지고기' ><label for= 'pork'>돼지고기</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='beef'value= '쇠고기' ><label for= 'beef'>쇠고기</label>
+      </div><br/> 
+      <div class="underline"> 어패류:</div>
+      <div>
+      <input type="checkbox" name='user[allergy][]' id='고등어/오징어'value= '고등어/오징어' ><label for= '고등어/오징어'>고등어/오징어</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='게/새우' value= '게/새우 ' ><label for= '게/새우 '>게/새우 </label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='조개류/홍합/전복/굴'value= '조개류/홍합/전복/굴' ><label for= '조개류/홍합/전복/굴'>조개류/홍합/전복/굴</label>
+      </div><br/>
+      <div class="underline"> 견과류,아황산:</div>
+      <div>
+      <input type="checkbox" name='user[allergy][]' id='땅콩/호두'value= '땅콩/호두' ><label for= '땅콩/호두'>땅콩/호두</label>&nbsp;
+      <input type="checkbox" name='user[allergy][]' id='아황산류'value= '아황산류' ><label for= '아황산류'>아황산류</label>
+      </div><br/>
+  
+      <div class="underline">
+      기타:<%= f.text_field :etc, class: "effect-2", placeholder:" ex. 오이, 감자 등" %>   
+      <%# 기타:<input  id="user[allergy][]" name="user[allergy][]"  class="input_gpm" type="text" /> %>
+      </div>
+    </div><br/>
+ 
+  </div>  <%# option %>
+
+  <% end %>
+  <%# <%= link_to "Back" %> 
+
+</div> 
+<%# <h3>Cancel my account</h3> %>
+<%# <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+
+
+<!-- 팝업창  -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span> 
+    <br>
+    <h4>회원가입을 축하합니다:) <br> 원활한 사용을 위해 세부정보를 입력해주세요! </h4><br/>
+    <div class="modal-footer">
+    <button id="yes">수정하기</button>
+    <button id="no"><a href="profiles/<%=current_user.id%>"><font color="black">나중에 할게요!</font></a></button>
+    </div>
+</div>
+
+
+<style> 
+/* 임시 ***************/
+	.modal-footer {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			width: 100%;
+			margin: 0;
+     padding: 1.875rem 0 0;
+     
+  }
+
+#yes, #no{
+    /* background: none; */
+    padding: 5px 5px;
+    border-radius: 2px;
+    background-color:#E2D6CF;
+    border: none;
+    display: block;
+    width: 200px;
+    color: black;
+    margin-right:120px;
+}
+
+/***********************/
+.modal {
+  transition: all $base-duration cubic-bezier(.25,.8,.25,1);  
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    font-family: 'Jeju Myeongjo', serif;
+    text-align: center;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    padding-top: 60px;
+    border: 1px solid #888;
+    width: 50%;
+    height: 60%;
+}
+
+/* The Close Button */
+.close {
+    text-align: right;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
+<script>
+  var modal = document.getElementById('myModal');
+  var span = document.getElementsByClassName("close")[0];
+  var update = document.getElementById("yes"); //수정하기 누르면 editsns페이지 그대로남기
+  var later = document.getElementById("no")
+  span.onclick = function() {
+          modal.style.display = "none";   
+  }
+  update.onclick = function() {
+        modal.style.display = "none";
+  }    
+// modal밖에 눌렀을때 닫기
+  //window.onclick = function(event) {
+  //    if (event.target == modal) {
+  //        modal.style.display = "none";
+  //    }
+  //}
+// page 로드시 팝업창  
+  function fnShowPopup() {
+      // alert('');
+      modal.style.display = "block"; 
+  }
+  $(document).ready(function () {
+      setTimeout(fnShowPopup, 300); 
+  });
+  
+</script>
+
+<%# <% end %> 

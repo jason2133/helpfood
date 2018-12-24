@@ -1,0 +1,30 @@
+<%= form_for(zizuminfo) do |f| %>
+  <% if zizuminfo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zizuminfo.errors.count, "error") %> prohibited this zizuminfo from being saved:</h2>
+
+      <ul>
+      <% zizuminfo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>  
+  
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image,
+        accept: 'image/png, image/gif, image/jpeg'%>
+  </div>
+    
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  
+<% end %>

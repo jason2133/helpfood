@@ -1,0 +1,75 @@
+<h2>온라인 입점신청</h2>  
+ <%= devise_error_messages! %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+    <%# <%= f.input :email, %>
+                <%# required: true, %>
+                <%# autofocus: true , %>
+                <%# input_html: { autocomplete: "email" }%> 
+    <%# <%= f.input :password, %>
+                <%# required: true, %>
+                <%# hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), %>
+                <%# input_html: { autocomplete: "new-password" } %> 
+    <%# <%= f.input :password_confirmation, %>
+                <%# required: true, %>
+                <%# input_html: { autocomplete: "new-password" } %>
+
+<h3> 사업자 정보 </h3>
+  <div class = "field">
+    <%= f.label "사장님 성함" %><br/>
+    <%= f.text_field :name, class: "form-control" ,required:true,placeholder:"사업자등록증에 등록된 업주명을 입력해주세요"%>
+  </div>
+
+   <div class = "field">
+    <%= f.label "휴대폰 번호"%><br/>
+    <%= f.number_field :phonenum, class: "form-control", placeholder:"01073021376" ,required:true%>
+  </div>
+
+  <div class = "field">
+    <%= f.label "이메일" %><br/>
+    <%= f.email_field :email, class: "form-control" ,required:true%>
+  </div>
+
+  <div class="field">
+    <%= f.label :registerimg, "사업자등록증 사본" %><br />
+    <%= f.file_field :registerimg, accept: 'image/png, image/gif, image/jpeg' %>
+  </div>
+
+  <div class="field">
+    <%= f.label "비밀번호" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    <%# <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "비밀번호 확인" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  </div>
+
+<hr>
+
+<h3>음식점 정보</h3>
+   <div class = "field">
+    <%= f.label "음식점 이름" %><br/>
+    <%= f.text_field :shop_name, class: "form-control" %>
+  </div>
+
+ <div class = "음식점 전화번호">
+    <%= f.label :shop_num %><br/>
+    <%= f.number_field :shop_num, class: "form-control" %>
+  </div>
+
+   <div class = "음식점 주소"> <!--주소api?orjust--> 
+    <%= f.label :shop_info %><br/>
+    <%= f.text_area :shop_info, class: "form-control" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "owners/shared/links" %>

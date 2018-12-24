@@ -1,0 +1,98 @@
+
+ <!-- 알림창 -->
+
+<a onclick="showHide('info_html')" onfocus="this.blur()" style="color:white;margin-top:7px;"><b> 알림 (<%= current_user.new_alarms.unread_by(current_user).count %>)</b></a>
+<div id="info_html" style="display:none; margin-top: 10px;">
+<%= render partial: "layouts/notice", collection: current_user.new_alarms.unread_by(current_user) %>
+<%= link_to '<b>X</b>'.html_safe, new_alarms_read_all_path %>
+</div>
+
+
+<!-- 팝업창  회원가입버튼누르면 나오게함 회원가입버튼누른 사람만-->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h4>글이 생성되었습니다! </h4><br/>
+    <button id="no"><a href="/">나중에 할게요!</a></button>
+  </div>
+</div>
+
+<style> 
+/* 임시 ***************/
+#yes{
+  margin-left:38%;
+  width:200px;
+}
+#no{
+  width:200px;
+  margin-left:38%;
+}
+/***********************/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    height: 60%;
+}
+
+/* The Close Button */
+.close {
+    text-align: right;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+
+<script>
+  var modal = document.getElementById('myModal');
+  var span = document.getElementsByClassName("close")[0];
+  var later = document.getElementById("no")
+  span.onclick = function() {
+          modal.style.display = "none";   
+  }
+  update.onclick = function() {
+        modal.style.display = "none";
+  }    
+// modal밖에 눌렀을때 닫기
+  //window.onclick = function(event) {
+  //    if (event.target == modal) {
+  //        modal.style.display = "none";
+  //    }
+  //}
+// page 로드시 팝업창  
+  function fnShowPopup() {
+      // alert('');
+      modal.style.display = "block"; 
+  }
+  $(document).ready(function () {
+      setTimeout(fnShowPopup, 300); 
+  });
+  
+</script>
+
+<%# <% end %> 

@@ -1,0 +1,220 @@
+// Place all the styles related to the zizuminfos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jeju {
+    font-family: 'Jeju Myeongjo', serif;
+    color:#454338;
+}
+
+.irop {
+    font-family:'Noto Sans KR', sans-serif;
+    color:#454338;
+}
+
+
+// .rest {
+//     background: url('rest.png')  no-repeat center center fixed;   
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;  
+// }
+
+
+
+/* SEARCH */
+  
+  
+  #cont {
+    position: absolute;
+    height: 50px;
+    width: 300px;
+    margin-left: 170px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #cont.on {
+    -webkit-animation-name: in-out;
+    animation-name: in-out;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  
+  .rsinput {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 4px solid #FFFFFF;
+    border-radius: 50%;
+    background: none;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Roboto;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+  
+  .zsearch {
+    background: none;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 100%;
+    outline: 0;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+  
+  .zsearch:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: 26px;
+    margin-left: 17px;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .zclose {
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+  }
+  
+  .zclose:before {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    margin-top: -1px;
+    margin-left: -13px;
+    background-color: #fff;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .zclose:after {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    background-color: #fff;
+    margin-top: -1px;
+    margin-left: -13px;
+    cursor: pointer;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .zsquare {
+    box-sizing: border-box;
+    padding: 0 40px 0 10px;
+    width: 300px;
+    height: 50px;
+    border: 4px solid #FFFFFF;
+    border-radius: 0;
+    background: none;
+    color: #fff;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+    -webkit-transition-delay: 0.4s, 0s, 0.4s;
+    transition-delay: 0.4s, 0s, 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+.rest {
+    background: url('rest.png')  no-repeat center center fixed;   
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  
+}
+
+
+.zizum-name{
+    background-color: rgba(229,219,211,1);
+    border-radius: 6vh;
+    font-size: 1.5em;
+}
+
+.zizum-image{
+    width: 25vw;
+    height: 10vh;
+}
+
+//////////////allergy table//////////////////////
+.allergy-table{
+    width: 100%; 
+    vertical-align: middle;
+    font-size: 0.85em;
+}
+.allergy-table thead th{
+    background-color: rgba(229,219,211,1);
+    color: rgba(110, 104, 94, 1);
+    height: 8vh;
+    white-space:nowrap;
+}
+.allergy-table tbody tr:nth-child(odd){
+    background-color: rgba(249,249,250,1);
+    height: 9vh;
+    
+}
+
+.allergy-table tbody tr:nth-child(even){
+    background-color: rgba(243,242,241,1);
+    height: 9vh;
+}
+
+.allergy-star{
+    font-size: 0.85em;
+}
+.allergy-circle{
+    font-size: 0.85em;
+}
+
+.zizum-trash{
+    color: rgba(110, 104, 94, 1);
+}
+
+.zizum-edit{
+    color: rgba(110, 104, 94, 1);
+}
+//////////////allergy table//////////////////////

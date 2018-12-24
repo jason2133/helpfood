@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>/</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+     <% if article.notice == true %> 
+      <tr>
+        <td>공지</td>
+        <td><%= article.title %></td>
+        <td><%= article.content %></td>
+      </tr>
+    <% end %>
+   <% end %> 
+  </tbody>
+      
+ <tbody>
+   <% @articles.each do |article| %>
+    <% if article.notice == false %> 
+     <tr>
+      <td>
+         <% if article.articleimage.thumb.url != nil %><%= image_tag(article.articleimage.thumb.url) %><%end%></td>
+      <td><%= article.title %></td>
+      <td><%= article.content %></td>
+      <td><%= link_to '게시글', article %></td>
+      <% if current_user == article.user %>
+        <td>| <%= link_to '수정', edit_article_path(article) %></td>
+  |     <td>| <%= link_to '삭제', article, method: :DELETE, data: {confirm: '게시물을 삭제하시겠습니까?'}%></td>
+      <% end %>
+    <% end %>
+   <% end %> 
+  </tbody>
+</table>  
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>

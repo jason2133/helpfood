@@ -1,0 +1,148 @@
+// Place all the styles related to the menus controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.sido{
+    margin-right: 10px;
+    font-weight: 450;
+    color: #454338;
+}
+.title{
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #454338;
+}
+
+
+
+.options{
+    border: transparent;
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    font-size: 17px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 10px;
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(11, 36, 4, 0.315);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(11, 36, 4, 0.315);
+    box-shadow: 0px 3px 9px 0px rgba(11, 36, 4, 0.315);
+}
+
+.typebox{
+    position: relative;
+    display: inline-block;
+    background-color: #E2D6CF;
+    height: 28px;
+    width: 140px;
+    transform:  rotate(-2deg) skew(-20deg);
+    z-index: -1;
+    margin: 15px;
+    font-size: 15px;
+    padding-top: 6px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(11, 36, 4, 0.315);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(11, 36, 4, 0.315);
+    box-shadow: 0px 3px 5px 0px rgba(11, 36, 4, 0.315);
+}
+
+.typename{
+    transform: rotate(2deg) skew(18.5deg);
+    padding-left: 5px;
+    text-align: center;
+}
+.downic{
+    margin-left: 15px;
+}
+
+.selectcss{
+    -webkit-appearance: none; /* 화살표 없애기 for chrome*/
+    -moz-appearance: none;    /* 화살표 없애기 for firefox*/
+}
+
+.selectcss::-ms-expand{
+    display: none;
+} 
+
+
+.ziyuk{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 200px;
+    padding-left: 200px;
+    align-items: center;
+}
+
+.sigungu{
+    width: 180px;
+    height: 56px;
+}
+
+.enter{
+    margin: 0px;
+}
+
+.buttons{
+    margin: 0px;
+}
+
+.fish2{
+    margin-left:10px;
+}
+
+
+.enteropt{
+    font-weight: 550;
+    background:none;
+    margin: 2.5px;
+    width: 114px;
+    height: 28px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #E2D6CF;
+    text-align: center;
+    font-size: 15px;
+    transition: background-color 0.4s ease;
+}
+
+.enteropt:hover{
+    border-color: #e2dccf;
+    background-color: #e2dccf;
+    transition: background-color border-color 0.3s ease;
+}
+
+
+.sigungu-enter{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    padding-left: 15px;
+}
+
+.allergy-check{
+    visibility: hidden;
+    margin-top: 7px;
+    margin-left: 15px;
+}
+
+// input[type='checkbox']{
+//     width: 18px;
+//     height: 18px;
+// }
+
+.a-submit{
+    margin-top: 15px;
+    height: 40px;
+    background-color: transparent;
+    border-style: none;
+    color: rgb(180, 158, 145);
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.fa-search{
+    transform: scale(1.5);
+    margin-left: 10px;
+}
