@@ -9,3 +9,5 @@ http://program.kbs.co.kr/contents/vod/vod.html?source=episode&sname=vod&stype=vo
 * <KBS 스페셜>에는 저와 저희 팀원들이 출연하였으며, 해커톤 현장에서 '걱정없食'을 소개하였습니다.
 
 * '걱정없食' 2018년 7월 구글캠퍼스 서울에서 진행된 <멋쟁이사자처럼 아이디어톤>에서 1위를 차지하였습니다. 전체 201팀 중 1위에 당당히 올랐습니다.
+
+* AWS Deploy를 한 상태. 현재 이 Repository에서는 보안상의 문제로 인해 AWS 부분이 있는 코드를 아예 삭제하고 올림.
