@@ -1,5 +1,6 @@
 # 2018년 8월 멋쟁이사자처럼 해커톤 <걱정없食>
 
+## 소개
 * 2018년 8월 24~25일에 고려대학교 화정체육관에서 열린 <멋쟁이사자처럼 해커톤>에서 만들었습니다.
 
 * '걱정없食'은 '식품 알레르기 보유자를 위한 필터링 서비스'입니다.
@@ -11,3 +12,21 @@ http://program.kbs.co.kr/contents/vod/vod.html?source=episode&sname=vod&stype=vo
 * '걱정없食' 2018년 7월 구글캠퍼스 서울에서 진행된 <멋쟁이사자처럼 아이디어톤>에서 1위를 차지하였습니다. 전체 201팀 중 1위에 당당히 올랐습니다.
 
 * AWS Deploy를 한 상태입니다. 다만, 현재 이 Repository에서는 보안 상의 문제로 인해 AWS 부분이 있는 코드를 아예 삭제하고 올렸습니다.
+
+## 해커톤 당시 모습
+### 고려대학교 화정체육관에서 열린 <멋쟁이사자처럼 해커톤> 입간판
+![20180824_130407](https://user-images.githubusercontent.com/37537208/50454459-25281a00-098b-11e9-9693-fa71ecaeb0fc.jpg)
+
+### 전체 모습
+![fb_img_1535462610324](https://user-images.githubusercontent.com/37537208/50454489-47219c80-098b-11e9-8209-fce4ce2ce95d.jpg)
+ 
+## 홈페이지 구성 사진
+### 걱정없食 식품 알레르기 보유자를 위한 음식점 필터링 서비스 메인 화면
+![default](https://user-images.githubusercontent.com/37537208/50454519-67e9f200-098b-11e9-8467-cc1e4392623e.png)
+
+### 걱정없食 식품 알레르기 필터링 서비스 검색 화면
+![default](https://user-images.githubusercontent.com/37537208/50454524-6f110000-098b-11e9-8021-772ab9be8c31.png)
+
+### 걱정없食 식품 알레르기 필터링 서비스 검색 결과 화면
+![default](https://user-images.githubusercontent.com/37537208/50454551-8f40bf00-098b-11e9-81ff-adb1208c0173.png)
+
