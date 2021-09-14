@@ -6,7 +6,7 @@
 * '걱정없食'은 **식품 알레르기 보유자를 위한 필터링 서비스**입니다.
 
 * '걱정없食'은 2018년 11월 15일에 방송된 **<KBS 스페셜 - 기계와의 대화법>에도 출연**하였습니다.
-http://program.kbs.co.kr/contents/vod/vod.html?source=episode&sname=vod&stype=vod&program_code=T2016-0065&program_id=PS-2018131675-01-000&section_code=05&broadcast_complete_yn=N&local_station_code=00&section_sub_code=06&site_id=8127
+* [KBS 스페셜 방송 다시보기 링크](http://program.kbs.co.kr/contents/vod/vod.html?source=episode&sname=vod&stype=vod&program_code=T2016-0065&program_id=PS-2018131675-01-000&section_code=05&broadcast_complete_yn=N&local_station_code=00&section_sub_code=06&site_id=8127)
 
 * <KBS 스페셜>에는 저와 저희 팀원들이 출연하였으며, 해커톤 현장에서 '걱정없食'을 소개하였습니다.
 
